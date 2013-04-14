@@ -7,7 +7,6 @@
 
 {% block scripts %}{% endblock %}
 {% block stylesheets %}{% endblock %}
-<link rel="stylesheet" type="text/css" href="/static/base.css"/>
 
 </head>
 

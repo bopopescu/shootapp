@@ -70,7 +70,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'https://s3.amazonaws.com/django_heroku/'
+STATIC_URL = 'https://s3.amazonaws.com/django_heroku_v2/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -131,7 +131,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_ACCESS_KEY_ID = 'AKIAJG7VN7WLZGF4I7MQ'
 AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'django_heroku'
+AWS_STORAGE_BUCKET_NAME = 'django_heroku_v2'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -144,6 +144,8 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+     'gunicorn',
+     'storages',
 )
 
 # A sample logging configuration. The only tangible logging

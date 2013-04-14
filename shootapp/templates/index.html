@@ -1,6 +1,6 @@
 {% extends "base.html" %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
 
-{% block content %}
 <link rel="stylesheet" type="text/css" href="css/main.css">
   <meta charset="utf-8" />
   <title>Shoot it Down</title>
@@ -104,8 +104,9 @@ Try and shoot down other peoples ideas</div>
 <div class="add-idea-button">
 <button id="add_idea">Add an Idea</button>
 </div>
+{% block content %}
 
-<div id="content">
+<div id="contentbox">
 
 {% for x in idealist %}
 	<div id="idea{{x.id}}" class="ideabox">
@@ -141,5 +142,10 @@ Try and shoot down other peoples ideas</div>
 <div class="submitdiv">
 	<h3 class="submittext"> Submit </h3>
 </div>
+
+<p> {{ idealist }} </p>
+<p> {{ commentlist }} </p>
+
+{% endblock content %}
 
 </body></html>

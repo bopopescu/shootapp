@@ -16,7 +16,7 @@ def latest(request):
                 idea_last_activity=idea_last_activity_form)
     idea.save()
 
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/', RequestContext(request))
 
 def index(request):
     

@@ -7,22 +7,152 @@
 
 {% block scripts %}{% endblock %}
 {% block stylesheets %}{% endblock %}
+<link rel="stylesheet" type="text/css" href="css/main.css">
+  <meta charset="utf-8" />
+  <title>Shoot it Down</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <style>
+    body { font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script>
+  $(function() {
+    var idea_title = $( "#idea_title" ),
+      idea_description = $( "#idea_description" ),
+      allFields = $( [] ).add( idea_title ).add( idea_description );
+ 
+ 
+    $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 350,
+      width: 400,
+      modal: true,
+      buttons: {
+        "Add Idea": function() {
+          //add what you want to do with button here
+            $( "#users tbody" ).append( "<tr>" +
+              "<td>" + idea_title.val() + "</td>" +
+              "<td>" + idea_description.val() + "</td>" +
+            "</tr>" );
+            $( this ).dialog( "close" );
+          
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      close: function() {
+        allFields.val( "" ).removeClass( "ui-state-error" );
+      }
+    });
+ 
+    $( "#add_idea" )
+      .button()
+      .click(function() {
+        $( "#dialog-form" ).dialog( "open" );
+      });
+  });
+  </script>
 
 </head>
 
 <body>
+<div id="dialog-form" title="Add an Idea">
+ 
+  <form>
+  <fieldset>
+    <label for="idea_title">Idea Title</label>
+    <input type="text" name="idea_title" id="idea_title" class="text ui-widget-content ui-corner-all" />
+    <label for="idea_description">Idea Description</label>
+    <textarea name="idea_description" id="idea_description" value="" class="text ui-widget-content ui-corner-all" cols="55" rows="10">
+Enter more detail about your idea...
+</textarea>
+  </fieldset>
+  </form>
+</div>
+
+<div class="header">
+<div class="title">Shoot it Down</div>	
+<div class="tagline">
+Try and shoot down other peoples ideas</div>
+</div>
+<div class="horz-line" style="
+"></div>
+ <div class="vert-line"></div>
+
+<div class="steps">
+	<p class="steps-title">
+		Steps:
+	</p>
+	<div class="steps-content">
+	<p>
+		1. Post an idea
+	</p>
+		<p>
+		2. Watch others try to shoot it down.
+	</p>
+			<p>
+		3. Profit
+	</p>
+	</div>
 	
-	<div class="header"> 
+</div>
+<div class="add-idea-button">
+<button id="add_idea">Add an Idea</button>
+</div>
+{% block content %}
+
+<div id="contentbox">
+
+{% for x in idealist %}
+	<div id="idea{{x.id}}" class="ideabox">
+		<a href=""><p class="ideatitle">{{x.idea_title}}</p></a>
+		<p> {{x.idea_text}} </p>
+		<!-- include media -->
+	</div>
 	
-		<div class="logodiv">
-			<a href="/index.html"><h1 class="logo"> Shoot it Down </h1></a>
-			<p> Tagline Placeholder </p>
-		</div>	
+	{% for key,comments in commentlist.iteritems %}
 		
-	</div>
+		{% if key == x.id %}
+		
+		<div class="commentbox">
+		
+			{% for eachcomment in comments %}
+			<div class="commentdiv">
+				<p> {{ eachcomment }} </p>
+			</div>
+			{% endfor %}
+		
+		<form> <input type="text"> </form>
+		
+		</div>
+		
+		{% endif %}
 	
-	<div id="content">
-		{% block content %}{% endblock %}
-	</div>
-</body>
-</html>
+	{% endfor %}
+	
+{% endfor %}
+
+</div>
+
+<div class="submitdiv">
+	<h3 class="submittext"> Submit </h3>
+</div>
+
+<p> {{ idealist }} </p>
+<p> {{ commentlist }} </p>
+
+{% endblock content %}
+
+</body></html>

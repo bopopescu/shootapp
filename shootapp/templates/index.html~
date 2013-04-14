@@ -147,3 +147,5 @@ Try and shoot down other peoples ideas</div>
 <p> {{ commentlist }} </p>
 
 {% endblock content %}
+
+</body></html>

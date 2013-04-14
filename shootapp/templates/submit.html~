@@ -7,7 +7,6 @@
         <input type="text" name="idea_title">
         <input type="text" name="idea_text">
         <input type="submit" value="Submit Idea">
-{% csrf_token %}
     </form>
 
 

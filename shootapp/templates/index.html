@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="contentbox">
+
+{% for x in idealist %}
+	<div id="idea{{x.id}}" class="ideabox">
+		<a href=""><p class="ideatitle">{{x.idea_title}}</p></a>
+		<p> {{x.idea_text}} </p>
+		<!-- include media -->
+	</div>
+	
+	{% for key,comments in commentlist.iteritems %}
+		
+		{% if key == x.id %}
+		
+		<div class="commentbox">
+		
+			{% for eachcomment in comments %}
+			<div class="commentdiv">
+				<p> {{ eachcomment }} </p>
+			</div>
+			{% endfor %}
+		
+		<form> <input type="text"> </form>
+		
+		</div>
+		
+		{% endif %}
+	
+	{% endfor %}
+	
+{% endfor %}
+
+</div>
+
+<div class="submitdiv">
+	<h3 class="submittext"> Submit </h3>
+</div>
+
+<p> {{ idealist }} </p>
+<p> {{ commentlist }} </p>
+
+{% endblock content %}

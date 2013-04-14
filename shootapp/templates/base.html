@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<title> {% block title %} Shoot it Down {% endblock title %}  </title>
+
+{% block scripts %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+<link rel="stylesheet" type="text/css" href="/static/base.css"/>
+
+</head>
+
+<body>
+	
+	<div class="header"> 
+	
+		<div class="logodiv">
+			<a href="/index.html"><h1 class="logo"> Shoot it Down </h1></a>
+			<p> Tagline Placeholder </p>
+		</div>	
+		
+	</div>
+	
+	<div id="content">
+		{% block content %}{% endblock %}
+	</div>
+</body>
+</html>

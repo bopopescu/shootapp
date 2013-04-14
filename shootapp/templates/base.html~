@@ -4,9 +4,6 @@
 <head>
 
 <title> {% block title %} Shoot it Down {% endblock title %}  </title>
-
-{% block scripts %}{% endblock %}
-{% block stylesheets %}{% endblock %}
 <link rel="stylesheet" type="text/css" href="css/main.css">
   <meta charset="utf-8" />
   <title>Shoot it Down</title>
@@ -150,8 +147,6 @@ Try and shoot down other peoples ideas</div>
 	<h3 class="submittext"> Submit </h3>
 </div>
 
-<p> {{ idealist }} </p>
-<p> {{ commentlist }} </p>
 
 {% endblock content %}
 

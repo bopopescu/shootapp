@@ -1,7 +1,3 @@
-{% extends 'base.html' %}
-{% block content %}
-
-
 <div><p>Submit an Idea</p></div>
     <form action="/latest/" method="post">
 {% csrf_token %}
@@ -10,11 +6,4 @@
         <input type="submit" value="Submit Idea">
 
     </form>
-
-
-
-
-
-
-{% endblock content %}
 

@@ -22,7 +22,7 @@ def latest(request):
     '''
     return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}))
 '''
-    return render(request, index.html, {'idealist': ideas, 'commentlist': dict})
+    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}))
     #return HttpResponseRedirect('/', RequestContext(request))
 
 def index(request):

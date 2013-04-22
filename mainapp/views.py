@@ -15,8 +15,13 @@ def latest(request):
     idea = Idea(idea_title=idea_title_form, idea_text=idea_text_form, idea_created=idea_created_form, 
                 idea_last_activity=idea_last_activity_form)
     idea.save()
-
-    return HttpResponseRedirect('/', RequestContext(request))
+    ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
+    dict = {}
+    for i,each in enumerate(ideas):
+        dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
+    
+    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}))
+    #return HttpResponseRedirect('/', RequestContext(request))
 
 def index(request):
     

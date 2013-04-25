@@ -20,7 +20,8 @@ def submit(request):
             c = {'idealist': ideas, 'commentlist': dict}
         #return HttpResponseRedirect('/')
            
-        return render_to_response('index.html', context_instance=RequestContext(request))
+        #return render_to_response('index.html', context_instance=RequestContext(request))
+        return HttpResponseRedirect('/')
 
 
     else:

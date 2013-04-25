@@ -5,7 +5,7 @@ from mainapp.models import *
 
 
 def submit(request):
-    try:
+    if request.method == 'POST':
         idea_title_form = request.POST['idea_title']
         idea_text_form = request.POST['idea_text']
         idea_created_form = datetime.datetime.now()
@@ -18,7 +18,7 @@ def submit(request):
             dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
             c = {'idealist': ideas, 'commentlist': dict}
         return render_to_response('submit.html', context_instance=RequestContext(request))
-    except:
+    else:
         return render_to_response('submit.html', context_instance=RequestContext(request))
 
     '''

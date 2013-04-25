@@ -21,7 +21,7 @@ def submit(request):
 '''        
 return render_to_response('submit.html', context_instance=RequestContext(request))
 '''
-        return HttpResponseRedirect('/',context_instance=RequestContext(request))
+        return HttpResponseRedirect('/')
 
     else:
         return render_to_response('submit.html', context_instance=RequestContext(request))

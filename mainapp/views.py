@@ -18,10 +18,10 @@ def submit(request):
         for i,each in enumerate(ideas):
             dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
             c = {'idealist': ideas, 'commentlist': dict}
-'''        
-return render_to_response('submit.html', context_instance=RequestContext(request))
-'''
-        return HttpResponseRedirect('/')
+        #return HttpResponseRedirect('/')
+           
+        return render_to_response('index.html', context_instance=RequestContext(request))
+
 
     else:
         return render_to_response('submit.html', context_instance=RequestContext(request))

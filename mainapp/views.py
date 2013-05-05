@@ -29,7 +29,8 @@ def submit(request):
 
 
     else:
-        return render_to_response('submit.html', context_instance=RequestContext(request))
+        form = IdeaForm
+        return render(request, 'submit.html', {'form': form})
 
     '''
     return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}))

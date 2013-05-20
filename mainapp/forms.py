@@ -5,4 +5,4 @@ class IdeaForm(forms.Form):
     idea_text = forms.CharField()
     
 class CommentForm(forms.Form):
-    comment = forms.CharField()
+    comment_text = forms.CharField()

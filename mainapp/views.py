@@ -39,20 +39,21 @@ def submit(request):
     
 
 def index(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment_info = form.cleaned_data
+            comment_info_form = comment_info['comment_text']
+            comment_upvote_form = 0
+            comment = Comment(comment_text=comment_info_form, comment_agree=comment_upvote_form)
+            comment.save()
+
+            return HttpResponseRedirect('/')
+    else:
+        form = CommentForm
+        ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
+        dict = {}
+        for i,each in enumerate(ideas):
+            dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
     
-#    ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
-#    allcomments = Context()
-#    i = 0
-#    while i < len(ideas):
-#        comments = Comment.objects.filter(idea=ideas[i])
-#        allcomments[ideas[i].id] = comments
-#        i = i+1
-#
-#    return render(request, 'index.html', {'ideaslist':ideas, 'commentlist':allcomments})
-    form = CommentForm
-    ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
-    dict = {}
-    for i,each in enumerate(ideas):
-        dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
-    
-    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))
+        return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))

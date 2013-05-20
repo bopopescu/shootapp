@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, render
 from django.template import RequestContext, Context
 from mainapp.models import *
 import datetime
-from forms import IdeaForm
+from forms import IdeaForm, CommentForm
 
 
 def submit(request):
@@ -49,10 +49,10 @@ def index(request):
 #        i = i+1
 #
 #    return render(request, 'index.html', {'ideaslist':ideas, 'commentlist':allcomments})
-
+    form = CommnetForm
     ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
     dict = {}
     for i,each in enumerate(ideas):
         dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
     
-    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}))
+    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}), {'form': form})

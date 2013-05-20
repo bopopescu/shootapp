@@ -45,8 +45,8 @@ def index(request):
             comment_info = form.cleaned_data
             comment_info_form = comment_info['comment_text']
             comment_upvote_form = 0
-            comment = Comment(comment_text=comment_info_form, comment_agree=comment_upvote_form)
-            comment.save()
+            comment_stuff = Comment(comment_text=comment_info_form, comment_agree=comment_upvote_form)
+            comment_stuff.save()
             ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
             dict = {}
             for i,each in enumerate(ideas):

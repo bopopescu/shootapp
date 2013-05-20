@@ -49,7 +49,7 @@ def index(request):
 #        i = i+1
 #
 #    return render(request, 'index.html', {'ideaslist':ideas, 'commentlist':allcomments})
-    form = CommnetForm
+    form = CommentForm
     ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
     dict = {}
     for i,each in enumerate(ideas):

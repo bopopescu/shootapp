@@ -55,4 +55,4 @@ def index(request):
     for i,each in enumerate(ideas):
         dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
     
-    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict}), {'form': form})
+    return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))

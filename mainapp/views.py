@@ -47,8 +47,12 @@ def index(request):
             comment_upvote_form = 0
             comment = Comment(comment_text=comment_info_form, comment_agree=comment_upvote_form)
             comment.save()
-
-            return HttpResponseRedirect('/')
+            ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
+            dict = {}
+            for i,each in enumerate(ideas):
+                dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
+    
+            return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))
     else:
         form = CommentForm
         ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]

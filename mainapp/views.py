@@ -55,7 +55,12 @@ def index(request):
             return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))
     else:
         idea_db = Idea.objects.all().order_by('idea_last_activity').reverse()
-        ideas = [idea_db.idea_title, idea_db.idea_text, idea_db.id]
+        limit = len(Idea.objects.all())
+        i = 0
+        ideas = []
+        while i <= limit:
+            ideas.append([idea_db[i].idea_name, idea_db[i].idea_text, idea_db[i].id])
+            i = i+1
         '''
         dict = {}
         for i,each in enumerate(ideas):

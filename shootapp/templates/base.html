@@ -120,38 +120,9 @@ font-size: 15pt;">
 		<a href=""><p class="ideatitle">{{x.idea_title}}</p></a>
 		<p> {{x.idea_text}} </p>
 		<!-- include media -->
+		<a href="#">Comments</a>
 	</div>
-	
-	{% for key,comments in commentlist.iteritems %}
-		
-		{% if key == x.id %}
-		
-		<div class="commentbox">
-		
-			{% for eachcomment in comments %}
-			<div class="commentdiv">
-				<p> {{ eachcomment }} </p>
-			</div>
-			{% endfor %}
-		
-		    {% if form.errors %}
-        <p style="color: red;">
-            Please correct the error{{ form.errors|pluralize }} below.
-        </p>
-    {% endif %}
 
-    <form action="" method="post">
-        <table>
-            {{ form.as_table }}
-        </table>
-        {% csrf_token %}
-        <input type="submit" value="Submit">
-		
-		</div>
-		
-		{% endif %}
-	
-	{% endfor %}
 	
 {% endfor %}
 

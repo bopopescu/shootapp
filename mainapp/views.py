@@ -54,10 +54,11 @@ def index(request):
     
             return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))
     else:
-        form = CommentForm
         ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
+        '''
         dict = {}
         for i,each in enumerate(ideas):
             dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
-    
-        return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))
+        '''
+        return render(request, 'index.html', {'idealist': ideas})
+        #return render_to_response('index.html', context_instance=RequestContext(request, ))

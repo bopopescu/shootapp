@@ -39,32 +39,28 @@ def submit(request):
     
 
 def index(request):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment_info = form.cleaned_data
-            comment_info_form = comment_info['comment_text']
-            comment_upvote_form = 0
-            comment_stuff = Comment(comment_text=comment_info_form, comment_agree=comment_upvote_form)
-            comment_stuff.save()
-            ideas = Idea.objects.all().order_by('idea_last_activity').reverse()[0:4]
-            dict = {}
-            for i,each in enumerate(ideas):
-                dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
-    
-            return render_to_response('index.html', context_instance=RequestContext(request, {'idealist': ideas, 'commentlist': dict, 'form': form}))
-    else:
-        idea_db = Idea.objects.all().order_by('idea_last_activity').reverse()
-        limit = len(Idea.objects.all())
-        i = 0
-        ideas = []
-        while i <= limit-1:
-            ideas.append({'idea_title': idea_db[i].idea_title, 'idea_text': idea_db[i].idea_text, 'idea_id': idea_db[i].id})
-            i = i+1
-        '''
-        dict = {}
-        for i,each in enumerate(ideas):
-            dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
-        '''
-        return render(request, 'index.html', {'idealist': ideas})
+    idea_db = Idea.objects.all().order_by('idea_last_activity').reverse()
+    limit = len(Idea.objects.all())
+    i = 0
+    ideas = []
+    while i <= limit-1:
+        ideas.append({'idea_title': idea_db[i].idea_title, 'idea_text': idea_db[i].idea_text, 'idea_id': idea_db[i].id})
+        i = i+1
+    '''
+    dict = {}
+    for i,each in enumerate(ideas):
+        dict[ideas[i].id] = Comment.objects.filter(idea=ideas[i])
+    '''
+    return render(request, 'index.html', {'idealist': ideas})
         #return render_to_response('index.html', context_instance=RequestContext(request, ))
+
+def idea(request, offset):
+    try:
+        offset = int(offset)
+    except ValueError:
+        raise Http404()
+    idea_title = "blahabjaobj"
+    idea_text = "jafioejofaj"
+    comments = "fjaeiofjaewo"
+    return render(request, 'idea.html', {'idea_title': idea_title, 'idea_text': idea_text, 'comments': comments})
+    

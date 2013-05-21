@@ -117,10 +117,10 @@ font-size: 15pt;">
 
 {% for x in idealist %}
 	<div id="idea{{x.id}}" class="ideabox">
-		<a href=""><p class="ideatitle">{{x[0]}}</p></a>
-		<p> {{x.[1]}} </p>
+		<a href=""><p class="ideatitle">{{x.idea_title}}</p></a>
+		<p> {{x.idea_text}} </p>
 		<!-- include media -->
-		<a href="#">Comments {{x.[2]}}</a>
+		<a href="#">Comments {{x.idea_id}}</a>
 	</div>
 
 	

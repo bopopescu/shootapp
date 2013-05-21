@@ -58,7 +58,7 @@ def index(request):
         limit = len(Idea.objects.all())
         i = 0
         ideas = []
-        while i <= limit:
+        while i <= limit-1:
             ideas.append([idea_db[i].idea_title, idea_db[i].idea_text, idea_db[i].id])
             i = i+1
         '''

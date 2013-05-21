@@ -59,7 +59,7 @@ def index(request):
         i = 0
         ideas = []
         while i <= limit:
-            ideas.append([idea_db[i].idea_name, idea_db[i].idea_text, idea_db[i].id])
+            ideas.append([idea_db[i].idea_title, idea_db[i].idea_text, idea_db[i].id])
             i = i+1
         '''
         dict = {}

@@ -60,7 +60,8 @@ def idea(request, offset):
         idea = Idea.objects.get(id=offset)
         idea_title = "blahabjaobj"
         idea_text = "jafioejofaj"
-        comments = idea.comment_set.all()
+        #comments = idea.comment_set.all()
+        comments = comments.objects.filter(idea_id=offset)
     except ValueError:
         raise Http404()
     return render(request, 'idea.html', {'idea_title': idea_title, 'idea_text': idea_text, 'comments': comments})

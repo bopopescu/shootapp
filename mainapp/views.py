@@ -57,10 +57,11 @@ def index(request):
 def idea(request, offset):
     try:
         offset = int(offset)
+        idea = Idea.objects.get(id=offset)
+        idea_title = "blahabjaobj"
+        idea_text = "jafioejofaj"
+        comments = idea.comment_set.all()
     except ValueError:
         raise Http404()
-    idea_title = "blahabjaobj"
-    idea_text = "jafioejofaj"
-    comments = "fjaeiofjaewo"
     return render(request, 'idea.html', {'idea_title': idea_title, 'idea_text': idea_text, 'comments': comments})
     

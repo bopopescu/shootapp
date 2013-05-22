@@ -58,8 +58,8 @@ def idea(request, offset):
     try:
         offset = int(offset)
         idea = Idea.objects.get(id=offset)
-        idea_title = "blahabjaobj"
-        idea_text = "jafioejofaj"
+        idea_title = idea.idea_title
+        idea_text = idea.idea_text
         #comments = idea.comment_set.all()
         comments = Comment.objects.filter(idea_id=offset)
     except ValueError:

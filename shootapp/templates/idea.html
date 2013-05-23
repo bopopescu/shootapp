@@ -6,7 +6,13 @@
     <h1>Idea</h1>
 
    {{idea_title}}
+   <br>
    {{idea_text}}
-   {{comments}}
+   <br>
+   
+{% for x in comments %}
+   {{x.comment_text}}
+   <br>
+{% endfor %}
 </body>
 </html>

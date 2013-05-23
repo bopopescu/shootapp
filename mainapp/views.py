@@ -63,7 +63,6 @@ def idea(request, offset):
                 comment_info = form.cleaned_data
                 comment_data = comment_info['comment_text']
                 comment_upvote = 1 #placeholder
-
                 comment = Comment(comment_text = comment_data, comment_agree = comment_upvote, idea_id = int(offset))
                 comment.save
                 return HttpResponseRedirect('/')

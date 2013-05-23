@@ -66,7 +66,8 @@ def idea(request, offset):
                 idea_id_form = int(offset)
                 comment = Comment(comment_text = comment_text_form, comment_agree = comment_agree_form, idea_id = idea_id_form)
                 comment.save()
-                return HttpResponseRedirect('/')
+                url = '/idea/' + str(offset)
+                return HttpResponseRedirect(url)
         else:
             idea = Idea.objects.get(id=offset)
             idea_title = idea.idea_title

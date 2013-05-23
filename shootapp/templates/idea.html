@@ -4,16 +4,23 @@
 </head>
 <body>
     <h1>Idea</h1>
-
+    <p>
    {{idea_title}}
+   </p>
    <br>
+   <p>
    {{idea_text}}
+   </p>
    <br>
-   
+
+<p>Comments</p>
+<p>
 {% for x in comments %}
+<p>
    {{x.comment_text}}
-   <br>
+  </p>
 {% endfor %}
+</p>
 <br>
     {% if form.errors %}
         <p style="color: red;">

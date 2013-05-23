@@ -57,13 +57,28 @@ def index(request):
 def idea(request, offset):
     try:
         offset = int(offset)
-        idea = Idea.objects.get(id=offset)
-        idea_title = idea.idea_title
-        idea_text = idea.idea_text
-        #comments = idea.comment_set.all()
-        comments = Comment.objects.filter(idea_id=offset).reverse()
-        form = CommentForm
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment_info = form.cleaned_data
+                comment_data = comment_info['comment_text']
+                comment_upvote = 1 #placeholder
+
+                comment = Comment(comment_text = comment_data, comment_agree = comment_upvote, idea_id = int(offset))
+                comment.save
+                return HttpResponseRedirect('/')
+        else:
+            idea = Idea.objects.get(id=offset)
+            idea_title = idea.idea_title
+            idea_text = idea.idea_text
+            #comments = idea.comment_set.all()
+            comments = Comment.objects.filter(idea_id=offset).reverse()
+            form = CommentForm
     except ValueError:
         raise Http404()
     return render(request, 'idea.html', {'idea_title': idea_title, 'idea_text': idea_text, 'comments': comments, 'form': form})
+
+#add commenting on idea page
+#add correct urls on frotn page
+#basic html/css
     

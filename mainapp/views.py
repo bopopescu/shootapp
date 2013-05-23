@@ -44,7 +44,8 @@ def index(request):
     i = 0
     ideas = []
     while i <= limit-1:
-        ideas.append({'idea_title': idea_db[i].idea_title, 'idea_text': idea_db[i].idea_text, 'idea_id': idea_db[i].id})
+        url = '/idea/' + str(idea_db[i].id) + '/'
+        ideas.append({'idea_title': idea_db[i].idea_title, 'idea_text': idea_db[i].idea_text, 'idea_url': url})
         i = i+1
     '''
     dict = {}
@@ -79,7 +80,7 @@ def idea(request, offset):
         raise Http404()
     return render(request, 'idea.html', {'idea_title': idea_title, 'idea_text': idea_text, 'comments': comments, 'form': form})
 
-#add commenting on idea page
+
 #add correct urls on frotn page
 #basic html/css
     

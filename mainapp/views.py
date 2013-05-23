@@ -61,10 +61,11 @@ def idea(request, offset):
             form = CommentForm(request.POST)
             if form.is_valid():
                 comment_info = form.cleaned_data
-                comment_data = comment_info['comment_text']
-                comment_upvote = 1 #placeholder
-                comment = Comment(comment_text = comment_data, comment_agree = comment_upvote, idea_id = int(offset))
-                comment.save
+                comment_text_form = comment_info['comment_text']
+                comment_agree_form = 1 #placeholder
+                idea_id_form = int(offset)
+                comment = Comment(comment_text = comment_text_form, comment_agree = comment_agree_form, idea_id = idea_id_form)
+                comment.save()
                 return HttpResponseRedirect('/')
         else:
             idea = Idea.objects.get(id=offset)

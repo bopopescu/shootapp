@@ -81,6 +81,8 @@ def idea(request, offset):
     return render(request, 'idea.html', {'idea_title': idea_title, 'idea_text': idea_text, 'comments': comments, 'form': form})
 
 
-#add correct urls on frotn page
+
 #basic html/css
+#fix template inheritance
+#figure out more of general direction of site, 
     

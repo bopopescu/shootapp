@@ -40,8 +40,8 @@
 }
 .add-idea-button {
 	position: fixed;
-
-	right: 80px;
+	top: 415px;
+	left: 45px;
 	font-size: 17pt;
 	
 }

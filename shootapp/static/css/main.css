@@ -40,8 +40,7 @@
 }
 .add-idea-button {
 	position: fixed;
-	top: 415px;
-	left: 45px;
+	right: 80px;
 	font-size: 17pt;
 	
 }
@@ -51,7 +50,6 @@ font-size: 53px;
 font-weight: bold;
 margin-left: 30px;
 float: left;
-width: 25%;
 }
 
 .header {
@@ -65,7 +63,7 @@ height: 87px;
 
 .tagline{
 	float: right;
-	margin-right: 35%;
+	margin-right: 545px;
 margin-top: 25px;
 font-style: italic;
 font-size: 13pt;

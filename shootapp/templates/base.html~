@@ -54,7 +54,7 @@
       }
     });
  
-    $( "#add_idea" )
+    $( "#add_idea1234" )
       .button()
       .click(function() {
         $( "#dialog-form" ).dialog( "open" );
@@ -106,47 +106,28 @@ Try and shoot down other peoples ideas</div>
 	
 </div>
 <div class="add-idea-button">
+<a href = "/submit/">
 <button id="add_idea">Add an Idea</button>
+</a>
 </div>
 {% block content %}
 
-<div id="contentbox">
+<div id="contentbox" style="position: relative;
+top: 80px;
+left: 390px;
+font-size: 15pt;">
 
 {% for x in idealist %}
-	<div id="idea{{x.id}}" class="ideabox">
-		<a href=""><p class="ideatitle">{{x.idea_title}}</p></a>
-		<p> {{x.idea_text}} </p>
-		<!-- include media -->
+	<div class="ideabox">
+		<a href="{{x.idea_url}}"><p class="ideatitle">{{x.idea_title}}</p></a>
+		<br>
+		<br>
 	</div>
-	
-	{% for key,comments in commentlist.iteritems %}
-		
-		{% if key == x.id %}
-		
-		<div class="commentbox">
-		
-			{% for eachcomment in comments %}
-			<div class="commentdiv">
-				<p> {{ eachcomment }} </p>
-			</div>
-			{% endfor %}
-		
-		<form> <input type="text"> </form>
-		
-		</div>
-		
-		{% endif %}
-	
-	{% endfor %}
+
 	
 {% endfor %}
 
 </div>
-
-<div class="submitdiv">
-	<h3 class="submittext"> Submit </h3>
-</div>
-
 
 {% endblock content %}
 

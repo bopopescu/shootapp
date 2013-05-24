@@ -24,25 +24,4 @@ Try and shoot down other peoples ideas</div>
 <button id="add_idea">Add an Idea</button>
 </a>
 </div>
-{% block content %}
 
-<div id="contentbox" style="position: relative;
-top: 80px;
-left: 390px;
-font-size: 15pt;">
-
-{% for x in idealist %}
-	<div class="ideabox">
-		<a href="{{x.idea_url}}"><p class="ideatitle">{{x.idea_title}}</p></a>
-		<br>
-		<br>
-	</div>
-
-	
-{% endfor %}
-
-</div>
-
-{% endblock content %}
-
-</body></html>

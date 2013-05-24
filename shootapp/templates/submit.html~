@@ -1,9 +1,22 @@
-<div><p>Submit an Idea</p></div>
-    <form action="/latest/" method="post">
-{% csrf_token %}
-        <input type="text" name="idea_title">
-        <input type="text" name="idea_text">
-        <input type="submit" value="Submit Idea">
+<html>
+<head>
+    <title>Submit An Idea</title>
+</head>
+<body>
+    <h1>Submit</h1>
 
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+    <form action="" method="post">
+        <table>
+            {{ form.as_table }}
+        </table>
+        {% csrf_token %}
+        <input type="submit" value="Submit">
     </form>
-
+</body>
+</html>

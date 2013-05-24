@@ -1,8 +1,6 @@
-<html>
-<head>
-    <title>Submit An Idea</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h1>Submit</h1>
 
     {% if form.errors %}
@@ -18,5 +16,4 @@
         {% csrf_token %}
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+{% block content %}

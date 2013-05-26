@@ -17,12 +17,13 @@ line-height: 100%;
 
 <p style="
     font-weight: bold;
-">-Comments-</p>
+">-Comments-</p><hr>
 <p>
 {% for x in comments %}
 <p>
    {{x.comment_text}}
   </p>
+<hr>
 {% endfor %}
 </p>
 <br>

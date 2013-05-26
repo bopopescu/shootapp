@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<h1 style="
+    margin-bottom: 25px;
+">How it works</h1>
 <ol style="
     text-align: center;
     width: auto;

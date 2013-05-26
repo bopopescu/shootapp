@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p>
+<div style="text-align: center;">    
+<p style="
+    font-size: 35pt;
+    font-weight: bold;
+line-height: 100%;
+">
    {{idea_title}}
    </p>
    <br>
@@ -34,5 +39,6 @@
         {% csrf_token %}
         <input type="submit" value="Add Comment">
         </form>
+</div>
 
 {% endblock content %}

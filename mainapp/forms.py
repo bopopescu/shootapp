@@ -5,4 +5,4 @@ class IdeaForm(forms.Form):
     idea_text = forms.CharField(required=True, widget=forms.Textarea, label='', initial='Describe your idea...')
     
 class CommentForm(forms.Form):
-    comment_text = forms.CharField(required=True, widget=forms.Textarea, label='')
+    comment_text = forms.CharField(required=True, widget=forms.Textarea, label='', max_length=1000)

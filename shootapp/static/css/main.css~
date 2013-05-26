@@ -69,7 +69,7 @@ font-style: italic;
 font-size: 13pt;
 }
 
-#id_comment_text {
+#idea_comment_text {
 height: 100px;
 width: 200%;
 }

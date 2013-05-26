@@ -55,6 +55,9 @@ def index(request):
     return render(request, 'index.html', {'idealist': ideas})
         #return render_to_response('index.html', context_instance=RequestContext(request, ))
 
+def about(request):
+    return render(request, 'index.html', {'idealist': ideas})
+
 def idea(request, offset):
     try:
         offset = int(offset)
@@ -86,4 +89,5 @@ def idea(request, offset):
 #fix template inheritance
 #figure out more of general direction of site, 
 #https://devcenter.heroku.com/articles/s3-upload-python
+#install django south
     

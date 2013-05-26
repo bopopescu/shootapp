@@ -55,6 +55,9 @@ def index(request):
     return render(request, 'index.html', {'idealist': ideas})
         #return render_to_response('index.html', context_instance=RequestContext(request, ))
 
+def about(request):
+    return render(request, 'how-it-works.html')
+
 def idea(request, offset):
     try:
         offset = int(offset)

@@ -9,8 +9,10 @@ font-size: 15pt;">
 {% for x in idealist %}
 	<div class="ideabox">
 		<a href="{{x.idea_url}}"><p class="ideatitle">{{x.idea_title}}</p></a>
-		<br>
-		<br>
+<hr style="
+    width: 38%;
+    display: inline-block;
+">
 	</div>
 
 	

@@ -75,11 +75,17 @@ width: 200%;
 }
 
 #id_idea_title {
-width: 225%;
+width:225%;
 }
 #id_idea_title {
-width: 225%;
+width:225%;
 }
+
+#para1 {
+text-align:center;
+color:red;
+} 
+
 .addidea {
 	-moz-box-shadow:inset 0px 1px 0px 0px #000000;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #000000;

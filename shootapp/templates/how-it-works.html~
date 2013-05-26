@@ -2,14 +2,16 @@
 
 {% block content %}
 
-<h1>How it works:</h1>
-1. 
-2. Watch other people try to shoot it down.
-3. Profit
-<ol>
-<li>Post an idea you think is cool.</li>
+<ol style="
+    text-align: center;
+    width: auto;
+    display: inline-block;
+    font-size: 12pt;
+">
+<li style="
+">Post an idea you think is cool.</li>
 <li>Watch other people try to shoot it down.</li>
-<li>Profit</li>
+<li>Profit.</li>
 </ol>
 
 {% endblock content %}

@@ -86,4 +86,5 @@ def idea(request, offset):
 #fix template inheritance
 #figure out more of general direction of site, 
 #https://devcenter.heroku.com/articles/s3-upload-python
+#install django south
     

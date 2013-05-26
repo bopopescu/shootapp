@@ -1,5 +1,3 @@
 shootapp
 ========
-1. Fix template inheritance
-2. Do some basic css/html
-3. Figure out direction of app
+This was my first django app. It's a very basic forum themed around shooting start-up ideas down. Live at: http://fierce-island-1495.herokuapp.com/

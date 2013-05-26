@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div style="text-align: left">
     {% if form.errors %}
         <p style="color: red;">
             Please correct the error{{ form.errors|pluralize }} below.
@@ -15,4 +15,5 @@
         {% csrf_token %}
         <input type="submit" value="Submit Idea">
     </form>
+</div>
 {% endblock content %}

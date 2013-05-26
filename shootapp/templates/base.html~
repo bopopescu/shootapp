@@ -41,7 +41,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="/">Home</a></li>
-              <li><a href="/submit/">How it works</a></li>
+              <li><a href="#">How it works</a></li>
               <li><a href="/submit/">Add an Idea</a></li>
             </ul>
           </div><!--/.nav-collapse -->

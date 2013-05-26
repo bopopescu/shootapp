@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Idea</h1>
     <p>
    {{idea_title}}
    </p>
@@ -11,7 +10,9 @@
    </p>
    <br>
 
-<p>Comments</p>
+<p style="
+    font-weight: bold;
+">-Comments-</p>
 <p>
 {% for x in comments %}
 <p>

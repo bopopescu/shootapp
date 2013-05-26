@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Submit</h1>
 
     {% if form.errors %}
         <p style="color: red;">
@@ -14,6 +13,6 @@
             {{ form.as_table }}
         </table>
         {% csrf_token %}
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit Idea">
     </form>
 {% endblock content %}
